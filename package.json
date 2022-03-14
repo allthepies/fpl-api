@@ -7,7 +7,7 @@
   "private": false,
   "repository": "https://github.com/jeppe-smith/fpl-api",
   "scripts": {
-    "prepublish": "npm run build && git push",
+    "prepublish": "npm run build",
     "test": "jest",
     "build": "tsc",
     "coverage": "jest --collectCoverage",
