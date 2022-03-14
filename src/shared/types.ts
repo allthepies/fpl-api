@@ -668,3 +668,24 @@ export interface H2HLeagueMatches {
   page: number;
   results: H2HMatch[];
 }
+
+
+export interface TransferEntry {
+  entry: number
+  element_in: number;
+  element_in_cost: number;
+  element_out: number;
+  element_out_cost: number;
+  event: number;
+  rank: number;
+  time: string;
+
+}
+
+/*
+export interface TeamTransfers {
+  transfers: TransferEntry[]
+}
+*/
+
+//export interface TeamTransfers extends Array<TransferEntry> { }

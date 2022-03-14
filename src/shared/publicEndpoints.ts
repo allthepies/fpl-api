@@ -11,6 +11,7 @@ import {
   H2HLeague,
   H2HLeagueMatches,
   Live,
+  TransferEntry
 } from "./types";
 
 /**
@@ -183,4 +184,17 @@ export async function fetchClassicLeague(
   );
 
   return await response.json();
+}
+
+
+/**
+ * Fetch all transfers for an entry.
+ * @param entryId ID of an entry team.
+ */
+export async function fetchEntryTransfers(entryId: number): Promise<TransferEntry[]> {
+  const response = await fetchPublicEndpoint(
+    `https://fantasy.premierleague.com/api/entry/${entryId}/transfers`
+  );
+
+  return response.json();
 }
