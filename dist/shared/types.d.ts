@@ -1,7 +1,7 @@
-export declare type ElementStatus = "a" | "u" | "i" | "s" | "n" | "d";
-export declare type ChipName = "bboost" | "3xc" | "freehit" | "wildcard";
-export declare type LeagueType = "x" | "s";
-export declare type StatIdentifier = "minutes" | "goals_scored" | "assists" | "clean_sheets" | "goals_conceded" | "own_goals" | "penalties_saved" | "penalties_missed" | "yellow_cards" | "red_cards" | "saves" | "bonus" | "bps";
+export type ElementStatus = "a" | "u" | "i" | "s" | "n" | "d";
+export type ChipName = "bboost" | "3xc" | "freehit" | "wildcard";
+export type LeagueType = "x" | "s";
+export type StatIdentifier = "minutes" | "goals_scored" | "assists" | "clean_sheets" | "goals_conceded" | "own_goals" | "penalties_saved" | "penalties_missed" | "yellow_cards" | "red_cards" | "saves" | "bonus" | "bps";
 export interface ElementStats {
     label: string;
     name: string;

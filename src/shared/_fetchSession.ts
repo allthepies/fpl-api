@@ -24,7 +24,7 @@ export async function _fetchSession(
     formData.append("app", "plfpl-web");
     formData.append(
       "redirect_uri",
-      "https://fantasy.premierleague.com/a/login"
+      "https://fantasy.premierleague.com/"
     );
 
     response = await fetchWithCookies(
@@ -33,7 +33,10 @@ export async function _fetchSession(
         method: "POST",
         body: formData,
         headers: {
-          "User-Agent": "fpl-api",
+          //"User-Agent": "fpl-api",
+          Origin: "https://fantasy.premierleague.com",
+          Referer: "https://fantasy.premierleague.com/",
+          "User-Agent" : "Dalvik/2.1.0 (Linux; U; Android 5.1; PRO 5 Build/LMY47D)"
         },
       }
     );

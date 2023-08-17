@@ -14,7 +14,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -66,7 +66,7 @@ function fetchElementSummary(elementId) {
         var response, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)("https://fantasy.premierleague.com/api/element-summary/" + elementId + "/")];
+                case 0: return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)("https://fantasy.premierleague.com/api/element-summary/".concat(elementId, "/"))];
                 case 1:
                     response = _a.sent();
                     return [4 /*yield*/, response.json()];
@@ -89,7 +89,7 @@ function fetchEntryEvent(entryId, eventId) {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)("https://fantasy.premierleague.com/api/entry/" + entryId + "/event/" + eventId + "/picks/")];
+                case 0: return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)("https://fantasy.premierleague.com/api/entry/".concat(entryId, "/event/").concat(eventId, "/picks/"))];
                 case 1:
                     response = _a.sent();
                     return [4 /*yield*/, response.json()];
@@ -128,7 +128,7 @@ function fetchFixtures(eventId) {
             switch (_a.label) {
                 case 0:
                     query = eventId !== undefined ? "?event=" + eventId : "";
-                    return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)("https://fantasy.premierleague.com/api/fixtures" + query)];
+                    return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)("https://fantasy.premierleague.com/api/fixtures".concat(query))];
                 case 1:
                     response = _a.sent();
                     return [2 /*return*/, response.json()];
@@ -146,7 +146,7 @@ function fetchLive(eventId) {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)("https://fantasy.premierleague.com/api/event/" + eventId + "/live/")];
+                case 0: return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)("https://fantasy.premierleague.com/api/event/".concat(eventId, "/live/"))];
                 case 1:
                     response = _a.sent();
                     return [2 /*return*/, response.json()];
@@ -164,7 +164,7 @@ function fetchEntryHistory(entryId) {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)("https://fantasy.premierleague.com/api/entry/" + entryId + "/history/")];
+                case 0: return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)("https://fantasy.premierleague.com/api/entry/".concat(entryId, "/history/"))];
                 case 1:
                     response = _a.sent();
                     return [2 /*return*/, response.json()];
@@ -182,7 +182,7 @@ function fetchEntry(entryId) {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)("https://fantasy.premierleague.com/api/entry/" + entryId + "/")];
+                case 0: return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)("https://fantasy.premierleague.com/api/entry/".concat(entryId, "/"))];
                 case 1:
                     response = _a.sent();
                     return [2 /*return*/, response.json()];
@@ -205,7 +205,7 @@ function fetchH2HMatches(leagueId, entryId, page) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)(
                     // tslint:disable-next-line
-                    "https://fantasy.premierleague.com/api/leagues-h2h-matches/league/" + leagueId + "/?page=" + page + "&entry=" + entryId)];
+                    "https://fantasy.premierleague.com/api/leagues-h2h-matches/league/".concat(leagueId, "/?page=").concat(page, "&entry=").concat(entryId))];
                 case 1:
                     response = _a.sent();
                     return [4 /*yield*/, response.json()];
@@ -233,7 +233,7 @@ function fetchH2HLeagueStandings(leagueId, _a) {
             switch (_c.label) {
                 case 0: return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)(
                     // tslint:disable-next-line
-                    "https://fantasy.premierleague.com/api/leagues-h2h/" + leagueId + "/standings/?page_new_entries=" + pageNewEntries + "&page_standings=" + pageStandings)];
+                    "https://fantasy.premierleague.com/api/leagues-h2h/".concat(leagueId, "/standings/?page_new_entries=").concat(pageNewEntries, "&page_standings=").concat(pageStandings))];
                 case 1:
                     response = _c.sent();
                     return [4 /*yield*/, response.json()];
@@ -263,7 +263,7 @@ function fetchClassicLeague(leagueId, _a) {
             switch (_c.label) {
                 case 0: return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)(
                     // tslint:disable-next-line
-                    "https://fantasy.premierleague.com/api/leagues-classic/" + leagueId + "/standings/?page_new_entries=" + pageNewEntries + "&page_standings=" + pageStandings + "&phase=" + phase)];
+                    "https://fantasy.premierleague.com/api/leagues-classic/".concat(leagueId, "/standings/?page_new_entries=").concat(pageNewEntries, "&page_standings=").concat(pageStandings, "&phase=").concat(phase))];
                 case 1:
                     response = _c.sent();
                     return [4 /*yield*/, response.json()];
@@ -282,7 +282,7 @@ function fetchEntryTransfers(entryId) {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)("https://fantasy.premierleague.com/api/entry/" + entryId + "/transfers")];
+                case 0: return [4 /*yield*/, (0, fetchPublicEndpoint_1.fetchPublicEndpoint)("https://fantasy.premierleague.com/api/entry/".concat(entryId, "/transfers"))];
                 case 1:
                     response = _a.sent();
                     return [2 /*return*/, response.json()];
