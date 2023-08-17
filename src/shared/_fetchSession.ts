@@ -24,7 +24,7 @@ export async function _fetchSession(
     formData.append("app", "plfpl-web");
     formData.append(
       "redirect_uri",
-      "https://fantasy.premierleague.com/"
+      "https://fantasy.premierleague.com/a/login"
     );
 
     response = await fetchWithCookies(
@@ -34,9 +34,9 @@ export async function _fetchSession(
         body: formData,
         headers: {
           //"User-Agent": "fpl-api",
-          Origin: "https://fantasy.premierleague.com",
-          Referer: "https://fantasy.premierleague.com/",
-          "User-Agent" : "Dalvik/2.1.0 (Linux; U; Android 5.1; PRO 5 Build/LMY47D)"
+         // Origin: "https://fantasy.premierleague.com",
+         // Referer: "https://fantasy.premierleague.com/",
+          "User-Agent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
         },
       }
     );
