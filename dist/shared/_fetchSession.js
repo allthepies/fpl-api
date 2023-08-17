@@ -46,12 +46,20 @@ var tough_cookie_1 = require("tough-cookie");
  */
 function _fetchSession(FormData, fetchCookie, email, password) {
     return __awaiter(this, void 0, void 0, function () {
-        var cookieJar, fetchWithCookies, formData, response, error_1;
+        var cookieJar, c1, c2, fetchWithCookies, formData, response, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 2, , 3]);
+                    _a.trys.push([0, 4, , 5]);
                     cookieJar = new tough_cookie_1.CookieJar();
+                    c1 = tough_cookie_1.Cookie.parse("datadome=; Domain=.premierleague.com; Path=/");
+                    return [4 /*yield*/, cookieJar.setCookie(c1 || '', "https://fantasy.premierleague.com/a/login")];
+                case 1:
+                    _a.sent();
+                    c2 = tough_cookie_1.Cookie.parse("pl_profile=; Domain=premierleague.com; Path=/; HttpOnly");
+                    return [4 /*yield*/, cookieJar.setCookie(c2 || '', "https://fantasy.premierleague.com/a/login")];
+                case 2:
+                    _a.sent();
                     fetchWithCookies = fetchCookie(cross_fetch_1.fetch, cookieJar);
                     formData = new FormData();
                     response = void 0;
@@ -69,7 +77,7 @@ function _fetchSession(FormData, fetchCookie, email, password) {
                                 "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
                             }
                         })];
-                case 1:
+                case 3:
                     response = _a.sent();
                     if (!response.ok) {
                         throw new Error(response.statusText);
@@ -80,10 +88,10 @@ function _fetchSession(FormData, fetchCookie, email, password) {
                         throw new Error("Unauthorized");
                     }
                     return [2 /*return*/, cookieJar];
-                case 2:
+                case 4:
                     error_1 = _a.sent();
                     throw error_1;
-                case 3: return [2 /*return*/];
+                case 5: return [2 /*return*/];
             }
         });
     });

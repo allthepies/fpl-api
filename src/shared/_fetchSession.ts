@@ -1,6 +1,6 @@
 import { fetch } from "cross-fetch";
 
-import { CookieJar } from "tough-cookie";
+import { CookieJar, Cookie } from "tough-cookie";
 
 /**
  * Fetch a session to use with protected endpoints.
@@ -15,6 +15,19 @@ export async function _fetchSession(
 ): Promise<CookieJar> {
   try {
     const cookieJar = new CookieJar();
+    const c1 = Cookie.parse("datadome=; Domain=.premierleague.com; Path=/");
+    await cookieJar.setCookie(
+      c1||'',
+      "https://fantasy.premierleague.com/a/login"
+    );
+
+    const c2 = Cookie.parse("pl_profile=; Domain=premierleague.com; Path=/; HttpOnly");
+    await cookieJar.setCookie(
+      c2||'',
+      "https://fantasy.premierleague.com/a/login"
+    );
+
+
     const fetchWithCookies = fetchCookie(fetch, cookieJar);
     const formData = new FormData();
     let response;
