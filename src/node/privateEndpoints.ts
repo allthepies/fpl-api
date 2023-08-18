@@ -1,5 +1,5 @@
 import { CookieJar } from "tough-cookie";
-import { Me, MyTeam } from "../shared/types";
+import { Me, MyTeam, TeamTransfers } from "../shared/types";
 import { fetchPrivateEndpoint } from "./fetchPrivateEndpoint";
 
 /**
@@ -57,6 +57,24 @@ export async function fetchMyTeam(
   const response = await fetchPrivateEndpoint(
     session,
     `https://fantasy.premierleague.com/api/my-team/${entryId}/`
+  );
+
+  return await response.json();
+}
+
+/**
+ * Fetch the gameweek transfers of current user.
+ * @see {@link fetchSession}
+ * @param session
+ * @param entryId
+ */
+export async function fetchCurrentTransfers(
+  session: CookieJar,
+  entryId: number
+): Promise<TeamTransfers> {
+  const response = await fetchPrivateEndpoint(
+    session,
+    `https://fantasy.premierleague.com/api/entry/${entryId}/transfers-latest/`
   );
 
   return await response.json();

@@ -688,4 +688,4 @@ export interface TeamTransfers {
 }
 */
 
-//export interface TeamTransfers extends Array<TransferEntry> { }
+export interface TeamTransfers extends Array<TransferEntry> { }

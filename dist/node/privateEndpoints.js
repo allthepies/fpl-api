@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.fetchCurrentUser = exports.fetchMyTeam = exports.addToWatchList = exports.removeFromWatchList = void 0;
+exports.fetchCurrentUser = exports.fetchCurrentTransfers = exports.fetchMyTeam = exports.addToWatchList = exports.removeFromWatchList = void 0;
 var fetchPrivateEndpoint_1 = require("./fetchPrivateEndpoint");
 /**
  * Remove a player from the current users watchlist.
@@ -103,6 +103,27 @@ function fetchMyTeam(session, entryId) {
     });
 }
 exports.fetchMyTeam = fetchMyTeam;
+/**
+ * Fetch the gameweek transfers of current user.
+ * @see {@link fetchSession}
+ * @param session
+ * @param entryId
+ */
+function fetchCurrentTransfers(session, entryId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, (0, fetchPrivateEndpoint_1.fetchPrivateEndpoint)(session, "https://fantasy.premierleague.com/api/entry/".concat(entryId, "/transfers-latest/"))];
+                case 1:
+                    response = _a.sent();
+                    return [4 /*yield*/, response.json()];
+                case 2: return [2 /*return*/, _a.sent()];
+            }
+        });
+    });
+}
+exports.fetchCurrentTransfers = fetchCurrentTransfers;
 /**
  * Fetch current user.
  * @see {@link fetchSession}

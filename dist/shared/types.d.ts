@@ -603,4 +603,6 @@ export interface TransferEntry {
     rank: number;
     time: string;
 }
+export interface TeamTransfers extends Array<TransferEntry> {
+}
 export {};

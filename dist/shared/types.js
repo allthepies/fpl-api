@@ -7,10 +7,4 @@ var EventStatusDayPoints;
     EventStatusDayPoints["PROVISIONAL"] = "p";
     EventStatusDayPoints["CONFIRMED"] = "r";
 })(EventStatusDayPoints = exports.EventStatusDayPoints || (exports.EventStatusDayPoints = {}));
-/*
-export interface TeamTransfers {
-  transfers: TransferEntry[]
-}
-*/
-//export interface TeamTransfers extends Array<TransferEntry> { }
 //# sourceMappingURL=types.js.map
