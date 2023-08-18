@@ -15,19 +15,6 @@ export async function _fetchSession(
 ): Promise<CookieJar> {
   try {
     const cookieJar = new CookieJar();
-    const c1 = Cookie.parse("datadome=; Domain=.premierleague.com; Path=/");
-    await cookieJar.setCookie(
-      c1||'',
-      "https://fantasy.premierleague.com/a/login"
-    );
-
-    const c2 = Cookie.parse("pl_profile=; Domain=premierleague.com; Path=/; HttpOnly");
-    await cookieJar.setCookie(
-      c2||'',
-      "https://fantasy.premierleague.com/a/login"
-    );
-
-
     const fetchWithCookies = fetchCookie(fetch, cookieJar);
     const formData = new FormData();
     let response;
@@ -37,7 +24,7 @@ export async function _fetchSession(
     formData.append("app", "plfpl-web");
     formData.append(
       "redirect_uri",
-      "https://fantasy.premierleague.com/a/login"
+      "https://fantasy.premierleague.com/"
     );
 
     response = await fetchWithCookies(
@@ -47,8 +34,9 @@ export async function _fetchSession(
         body: formData,
         headers: {
           //"User-Agent": "fpl-api",
-         // Origin: "https://fantasy.premierleague.com",
-         // Referer: "https://fantasy.premierleague.com/",
+          "Accept-Language": "en",
+          Origin: "https://fantasy.premierleague.com",
+          Referer: "https://fantasy.premierleague.com/",
           "User-Agent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
         },
       }
