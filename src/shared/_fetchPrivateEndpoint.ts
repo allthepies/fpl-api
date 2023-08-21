@@ -23,12 +23,14 @@ export async function _fetchPrivateEndpoint(
     endpoint,
     Object.assign(
       {
-        "User-Agentz": "fpl-api",
+        //"User-Agentz": "fpl-api",
       },
       init
     )
   );
 
+  console.log ( "response %j", response);
+  
   if (!response.ok) {
     throw new Error(response.statusText);
   }

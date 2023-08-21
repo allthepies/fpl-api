@@ -19,8 +19,8 @@ export async function fetchPrivateEndpoint(
     session,
     endpoint,
     Object.assign(
-      {
-       /* headers: {
+     {
+        /*headers: {
           "User-Agent": "fpl-api",
         },
         */

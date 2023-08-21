@@ -108,7 +108,6 @@ export async function makeTeamTransfer(
   console.log("In makeTeamTransfer");
   console.log(JSON.stringify(transfers));
 
-  try {
   const response = await fetchPrivateEndpoint(
     session,
     `https://fantasy.premierleague.com/api/transfers/`,
@@ -126,12 +125,8 @@ export async function makeTeamTransfer(
     }
   );
 
-  console.log ( "response %j", response);
   return true || response.status === 200;
-  } catch ( error) {
-    console.log ( "Error: %j", error);
-    return false
-  }
+
 }
 
 
