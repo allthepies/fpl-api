@@ -110,7 +110,10 @@ export async function makeTeamTransfer(
     `https://fantasy.premierleague.com/api/transfers/`,
     {
       method: "POST",
-      body: JSON.stringify(transfers)
+      body: JSON.stringify(transfers),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     }
   );
 
@@ -137,6 +140,9 @@ export async function makeTeamLineup(
     {
       method: "POST",
       body: JSON.stringify(lineup),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     }
   );
 

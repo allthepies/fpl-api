@@ -157,7 +157,10 @@ function makeTeamTransfer(session, transfers) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, (0, fetchPrivateEndpoint_1.fetchPrivateEndpoint)(session, "https://fantasy.premierleague.com/api/transfers/", {
                         method: "POST",
-                        body: JSON.stringify(transfers)
+                        body: JSON.stringify(transfers),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
                     })];
                 case 1:
                     response = _a.sent();
@@ -180,7 +183,10 @@ function makeTeamLineup(session, entryId, lineup) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, (0, fetchPrivateEndpoint_1.fetchPrivateEndpoint)(session, "https://fantasy.premierleague.com/api/my-team/".concat(entryId, "/"), {
                         method: "POST",
-                        body: JSON.stringify(lineup)
+                        body: JSON.stringify(lineup),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
                     })];
                 case 1:
                     response = _a.sent();
