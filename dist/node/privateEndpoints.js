@@ -152,26 +152,36 @@ exports.fetchCurrentUser = fetchCurrentUser;
  */
 function makeTeamTransfer(session, transfers) {
     return __awaiter(this, void 0, void 0, function () {
-        var response;
+        var response, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     console.log("In makeTeamTransfer");
                     console.log(JSON.stringify(transfers));
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
                     return [4 /*yield*/, (0, fetchPrivateEndpoint_1.fetchPrivateEndpoint)(session, "https://fantasy.premierleague.com/api/transfers/", {
                             method: "POST",
                             body: JSON.stringify(transfers),
                             headers: {
                                 'Content-Type': 'application/json',
                                 "Accept-Language": "en",
+                                Accept: "*/*",
                                 Origin: "https://fantasy.premierleague.com",
-                                Referer: "https://fantasy.premierleague.com/",
+                                Referer: "https://fantasy.premierleague.com/transfers",
                                 "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
                             }
                         })];
-                case 1:
+                case 2:
                     response = _a.sent();
+                    console.log("response %j", response);
                     return [2 /*return*/, true || response.status === 200];
+                case 3:
+                    error_1 = _a.sent();
+                    console.log("Error: %j", error_1);
+                    return [2 /*return*/, false];
+                case 4: return [2 /*return*/];
             }
         });
     });
