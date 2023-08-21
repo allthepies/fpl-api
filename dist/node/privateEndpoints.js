@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.fetchCurrentUser = exports.fetchCurrentTransfers = exports.fetchMyTeam = exports.addToWatchList = exports.removeFromWatchList = void 0;
+exports.makeTeamLineup = exports.makeTeamTransfer = exports.fetchCurrentUser = exports.fetchCurrentTransfers = exports.fetchMyTeam = exports.addToWatchList = exports.removeFromWatchList = void 0;
 var fetchPrivateEndpoint_1 = require("./fetchPrivateEndpoint");
 /**
  * Remove a player from the current users watchlist.
@@ -144,4 +144,58 @@ function fetchCurrentUser(session) {
     });
 }
 exports.fetchCurrentUser = fetchCurrentUser;
+/**
+ * Make transfers for the current user.
+ * @see {@link fetchSession}
+ * @param session
+ * @param transfers
+ */
+function makeTeamTransfer(session, transfers) {
+    return __awaiter(this, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, (0, fetchPrivateEndpoint_1.fetchPrivateEndpoint)(session, "https://fantasy.premierleague.com/api/transfers/", {
+                        method: "POST",
+                        body: JSON.stringify(transfers),
+                        headers: {
+                            "User-Agent": "fpl-api",
+                            'Content-Type': 'application/json'
+                        }
+                    })];
+                case 1:
+                    response = _a.sent();
+                    return [2 /*return*/, response.status === 200];
+            }
+        });
+    });
+}
+exports.makeTeamTransfer = makeTeamTransfer;
+/**
+ * Set the gameweek lineup of current user.
+ * @see {@link fetchSession}
+ * @param session
+ * @param transfers
+ */
+function makeTeamLineup(session, entryId, lineup) {
+    return __awaiter(this, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, (0, fetchPrivateEndpoint_1.fetchPrivateEndpoint)(session, "https://fantasy.premierleague.com/api/my-team/".concat(entryId, "/"), {
+                        method: "POST",
+                        body: JSON.stringify(lineup),
+                        headers: {
+                            "User-Agent": "fpl-api",
+                            'Content-Type': 'application/json'
+                        }
+                    })];
+                case 1:
+                    response = _a.sent();
+                    return [2 /*return*/, response.status === 200];
+            }
+        });
+    });
+}
+exports.makeTeamLineup = makeTeamLineup;
 //# sourceMappingURL=privateEndpoints.js.map

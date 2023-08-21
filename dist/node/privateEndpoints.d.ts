@@ -1,5 +1,5 @@
 import { CookieJar } from "tough-cookie";
-import { Me, MyTeam, TeamTransfers } from "../shared/types";
+import { Me, MyTeam, CurrentTeamTransfers, TeamTransfers, TeamLineup } from "../shared/types";
 /**
  * Remove a player from the current users watchlist.
  * @see {@link fetchSession}
@@ -27,10 +27,24 @@ export declare function fetchMyTeam(session: CookieJar, entryId: number): Promis
  * @param session
  * @param entryId
  */
-export declare function fetchCurrentTransfers(session: CookieJar, entryId: number): Promise<TeamTransfers>;
+export declare function fetchCurrentTransfers(session: CookieJar, entryId: number): Promise<CurrentTeamTransfers>;
 /**
  * Fetch current user.
  * @see {@link fetchSession}
  * @param session
  */
 export declare function fetchCurrentUser(session: CookieJar): Promise<Me>;
+/**
+ * Make transfers for the current user.
+ * @see {@link fetchSession}
+ * @param session
+ * @param transfers
+ */
+export declare function makeTeamTransfer(session: CookieJar, transfers: TeamTransfers): Promise<Boolean>;
+/**
+ * Set the gameweek lineup of current user.
+ * @see {@link fetchSession}
+ * @param session
+ * @param transfers
+ */
+export declare function makeTeamLineup(session: CookieJar, entryId: number, lineup: TeamLineup): Promise<Boolean>;

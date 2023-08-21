@@ -1,4 +1,4 @@
-import { Bootstrap, ClassicLeague, ElementSummary, Entry, EntryEvent, EntryHistory, EventStatus, Fixture, H2HLeague, H2HLeagueMatches, Live, TransferEntry } from "./types";
+import { Bootstrap, ClassicLeague, ElementSummary, Entry, EntryEvent, EntryHistory, EventStatus, Fixture, H2HLeague, H2HLeagueMatches, Live, CurrentransferEntry } from "./types";
 /**
  * Fetch bootstrap data for the official web app.
  * @return Static bootstrap data.
@@ -74,4 +74,4 @@ export declare function fetchClassicLeague(leagueId: number, { pageStandings, pa
  * Fetch all transfers for an entry.
  * @param entryId ID of an entry team.
  */
-export declare function fetchEntryTransfers(entryId: number): Promise<TransferEntry[]>;
+export declare function fetchEntryTransfers(entryId: number): Promise<CurrentransferEntry[]>;

@@ -593,7 +593,7 @@ export interface H2HLeagueMatches {
     page: number;
     results: H2HMatch[];
 }
-export interface TransferEntry {
+export interface CurrentransferEntry {
     entry: number;
     element_in: number;
     element_in_cost: number;
@@ -603,6 +603,28 @@ export interface TransferEntry {
     rank: number;
     time: string;
 }
-export interface TeamTransfers extends Array<TransferEntry> {
+export interface TeamTransferEntry {
+    element_in: number;
+    purchase_price: number;
+    element_out: number;
+    selling_price: number;
+}
+export interface TeamTransfers {
+    chip: string;
+    entry: number;
+    event: number;
+    transfers: TeamTransferEntry[];
+}
+export interface LineupPickEntry {
+    element: number;
+    is_captain: boolean;
+    is_vice_captain: boolean;
+    position: number;
+}
+export interface TeamLineup {
+    chip: string;
+    picks: LineupPickEntry[];
+}
+export interface CurrentTeamTransfers extends Array<CurrentransferEntry> {
 }
 export {};

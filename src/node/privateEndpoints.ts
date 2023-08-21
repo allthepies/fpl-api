@@ -1,5 +1,5 @@
 import { CookieJar } from "tough-cookie";
-import { Me, MyTeam, TeamTransfers } from "../shared/types";
+import { Me, MyTeam, CurrentTeamTransfers, TeamTransfers, TeamLineup } from "../shared/types";
 import { fetchPrivateEndpoint } from "./fetchPrivateEndpoint";
 
 /**
@@ -71,7 +71,7 @@ export async function fetchMyTeam(
 export async function fetchCurrentTransfers(
   session: CookieJar,
   entryId: number
-): Promise<TeamTransfers> {
+): Promise<CurrentTeamTransfers> {
   const response = await fetchPrivateEndpoint(
     session,
     `https://fantasy.premierleague.com/api/entry/${entryId}/transfers-latest/`
@@ -92,4 +92,60 @@ export async function fetchCurrentUser(session: CookieJar): Promise<Me> {
   );
 
   return await response.json();
+}
+
+/**
+ * Make transfers for the current user.
+ * @see {@link fetchSession}
+ * @param session
+ * @param transfers
+ */
+export async function makeTeamTransfer(
+  session: CookieJar,
+  transfers: TeamTransfers
+): Promise<Boolean> {
+
+  const response = await fetchPrivateEndpoint(
+    session,
+    `https://fantasy.premierleague.com/api/transfers/`,
+    {
+      method: "POST",
+      body: JSON.stringify(transfers),
+      headers: {
+        "User-Agent": "fpl-api",
+        'Content-Type': 'application/json'
+      },
+    }
+  );
+
+  return response.status === 200;
+}
+
+
+/**
+ * Set the gameweek lineup of current user.
+ * @see {@link fetchSession}
+ * @param session
+ * @param transfers
+ */
+export async function makeTeamLineup(
+  session: CookieJar,
+  entryId: number,
+  lineup: TeamLineup
+): Promise<Boolean> {
+
+  const response = await fetchPrivateEndpoint(
+    session,
+    `https://fantasy.premierleague.com/api/my-team/${entryId}/`,
+    {
+      method: "POST",
+      body: JSON.stringify(lineup),
+      headers: {
+        "User-Agent": "fpl-api",
+        'Content-Type': 'application/json'
+      },
+    }
+  );
+
+  return response.status === 200;
 }
