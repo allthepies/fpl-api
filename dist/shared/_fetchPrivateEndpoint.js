@@ -52,7 +52,7 @@ var cross_fetch_1 = __importDefault(require("cross-fetch"));
  */
 function _fetchPrivateEndpoint(fetchCookie, session, endpoint, init) {
     return __awaiter(this, void 0, void 0, function () {
-        var fetchWithCookies, response;
+        var fetchWithCookies, response, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -65,7 +65,10 @@ function _fetchPrivateEndpoint(fetchCookie, session, endpoint, init) {
                     response = _a.sent();
                     console.log("response status", response.status);
                     console.log("response status text", response.statusText);
-                    console.log("response body", response.body);
+                    return [4 /*yield*/, response.text()];
+                case 2:
+                    data = _a.sent();
+                    console.log("response text: ", data);
                     if (!response.ok) {
                         throw new Error(response.statusText);
                     }
