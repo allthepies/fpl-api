@@ -31,7 +31,9 @@ export async function _fetchPrivateEndpoint(
 
   console.log ( "response status", response.status);
   console.log ( "response status text", response.statusText);
-  console.log ( "response body", response.body);
+  const data = await response.json();
+
+  console.log(data);
   
   if (!response.ok) {
     throw new Error(response.statusText);
