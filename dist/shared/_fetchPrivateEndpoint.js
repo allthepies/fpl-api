@@ -57,14 +57,11 @@ function _fetchPrivateEndpoint(fetchCookie, session, endpoint, init) {
             switch (_a.label) {
                 case 0:
                     fetchWithCookies = fetchCookie(cross_fetch_1["default"], session);
-                    console.log("options: %j", init);
                     return [4 /*yield*/, fetchWithCookies(endpoint, Object.assign({
-                        //"User-Agentz": "fpl-api",
+                            "User-Agent": "fpl-api"
                         }, init))];
                 case 1:
                     response = _a.sent();
-                    console.log("response status", response.status);
-                    console.log("response status text", response.statusText);
                     if (!response.ok) {
                         throw new Error(response.statusText);
                     }

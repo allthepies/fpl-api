@@ -105,27 +105,16 @@ export async function makeTeamTransfer(
   transfers: TeamTransfers
 ): Promise<Boolean> {
 
-  console.log("In makeTeamTransfer");
-  console.log(JSON.stringify(transfers));
-
   const response = await fetchPrivateEndpoint(
     session,
     `https://fantasy.premierleague.com/api/transfers/`,
     {
       method: "POST",
-      body: JSON.stringify(transfers),
-      headers: {
-        'Content-Type': 'application/json',
-        "Accept-Language": "en",
-        Accept: "*/*",
-        Origin: "https://fantasy.premierleague.com",
-        Referer: "https://fantasy.premierleague.com/transfers",
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
-      },
+      body: JSON.stringify(transfers)
     }
   );
 
-  return true || response.status === 200;
+  return response.status === 200;
 
 }
 
@@ -142,23 +131,14 @@ export async function makeTeamLineup(
   lineup: TeamLineup
 ): Promise<Boolean> {
 
-  console.log("In makeTeamLineup");
-  console.log(JSON.stringify(lineup));
   const response = await fetchPrivateEndpoint(
     session,
     `https://fantasy.premierleague.com/api/my-team/${entryId}/`,
     {
       method: "POST",
       body: JSON.stringify(lineup),
-      headers: {
-        'Content-Type': 'application/json',
-        "Accept-Language": "en",
-        Origin: "https://fantasy.premierleague.com",
-        Referer: "https://fantasy.premierleague.com/",
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
-      },
     }
   );
 
-  return true || response.status === 200;
+  return response.status === 200;
 }

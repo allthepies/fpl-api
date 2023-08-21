@@ -18,20 +18,17 @@ export async function _fetchPrivateEndpoint(
   init?: RequestInit
 ): Promise<Response> {
   const fetchWithCookies = fetchCookie(fetch, session);
-  console.log ( "options: %j", init)
+
   const response = await fetchWithCookies(
     endpoint,
     Object.assign(
       {
-        //"User-Agentz": "fpl-api",
+        "User-Agent": "fpl-api",
       },
       init
     )
   );
 
-  console.log ( "response status", response.status);
-  console.log ( "response status text", response.statusText);
-    
   if (!response.ok) {
     throw new Error(response.statusText);
   }

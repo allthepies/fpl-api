@@ -54,10 +54,9 @@ function fetchPrivateEndpoint(session, endpoint, init) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, (0, _fetchPrivateEndpoint_1._fetchPrivateEndpoint)(node_fetch_1["default"], session, endpoint, Object.assign({
-                    /*headers: {
-                      "User-Agent": "fpl-api",
-                    },
-                    */
+                        headers: {
+                            "User-Agent": "fpl-api"
+                        }
                     }, init))];
                 case 1: return [2 /*return*/, _a.sent()];
             }
