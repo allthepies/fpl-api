@@ -29,7 +29,9 @@ export async function _fetchPrivateEndpoint(
     )
   );
 
-  console.log ( "response %j", response);
+  console.log ( "response status", response.status);
+  console.log ( "response status text", response.statusText);
+  console.log ( "response body", response.body);
   
   if (!response.ok) {
     throw new Error(response.statusText);
