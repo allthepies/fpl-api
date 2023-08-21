@@ -58,7 +58,7 @@ function _fetchPrivateEndpoint(fetchCookie, session, endpoint, init) {
                 case 0:
                     fetchWithCookies = fetchCookie(cross_fetch_1["default"], session);
                     return [4 /*yield*/, fetchWithCookies(endpoint, Object.assign({
-                            "User-Agent": "fpl-api"
+                            "User-Agentz": "fpl-api"
                         }, init))];
                 case 1:
                     response = _a.sent();

@@ -22,7 +22,7 @@ export async function _fetchPrivateEndpoint(
     endpoint,
     Object.assign(
       {
-        "User-Agent": "fpl-api",
+        "User-Agentz": "fpl-api",
       },
       init
     )

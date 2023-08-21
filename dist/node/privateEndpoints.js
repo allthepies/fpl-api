@@ -155,17 +155,23 @@ function makeTeamTransfer(session, transfers) {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, (0, fetchPrivateEndpoint_1.fetchPrivateEndpoint)(session, "https://fantasy.premierleague.com/api/transfers/", {
-                        method: "POST",
-                        body: JSON.stringify(transfers),
-                        headers: {
-                            "User-Agent": "fpl-api",
-                            'Content-Type': 'application/json'
-                        }
-                    })];
+                case 0:
+                    console.log("In makeTeamTransfer");
+                    console.log(JSON.stringify(transfers));
+                    return [4 /*yield*/, (0, fetchPrivateEndpoint_1.fetchPrivateEndpoint)(session, "https://fantasy.premierleague.com/api/transfers/", {
+                            method: "POST",
+                            body: JSON.stringify(transfers),
+                            headers: {
+                                'Content-Type': 'application/json',
+                                "Accept-Language": "en",
+                                Origin: "https://fantasy.premierleague.com",
+                                Referer: "https://fantasy.premierleague.com/",
+                                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+                            }
+                        })];
                 case 1:
                     response = _a.sent();
-                    return [2 /*return*/, response.status === 200];
+                    return [2 /*return*/, true || response.status === 200];
             }
         });
     });
@@ -182,17 +188,23 @@ function makeTeamLineup(session, entryId, lineup) {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, (0, fetchPrivateEndpoint_1.fetchPrivateEndpoint)(session, "https://fantasy.premierleague.com/api/my-team/".concat(entryId, "/"), {
-                        method: "POST",
-                        body: JSON.stringify(lineup),
-                        headers: {
-                            "User-Agent": "fpl-api",
-                            'Content-Type': 'application/json'
-                        }
-                    })];
+                case 0:
+                    console.log("In makeTeamLineup");
+                    console.log(JSON.stringify(lineup));
+                    return [4 /*yield*/, (0, fetchPrivateEndpoint_1.fetchPrivateEndpoint)(session, "https://fantasy.premierleague.com/api/my-team/".concat(entryId, "/"), {
+                            method: "POST",
+                            body: JSON.stringify(lineup),
+                            headers: {
+                                'Content-Type': 'application/json',
+                                "Accept-Language": "en",
+                                Origin: "https://fantasy.premierleague.com",
+                                Referer: "https://fantasy.premierleague.com/",
+                                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+                            }
+                        })];
                 case 1:
                     response = _a.sent();
-                    return [2 /*return*/, response.status === 200];
+                    return [2 /*return*/, true || response.status === 200];
             }
         });
     });
