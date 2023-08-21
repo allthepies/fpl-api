@@ -125,6 +125,7 @@ export async function makeTeamTransfer(
     }
   );
 
+  console.log ( "response %j", response);
   return true || response.status === 200;
 }
 
