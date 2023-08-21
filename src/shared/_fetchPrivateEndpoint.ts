@@ -18,6 +18,7 @@ export async function _fetchPrivateEndpoint(
   init?: RequestInit
 ): Promise<Response> {
   const fetchWithCookies = fetchCookie(fetch, session);
+  console.log ( "options: %j", init)
   const response = await fetchWithCookies(
     endpoint,
     Object.assign(
