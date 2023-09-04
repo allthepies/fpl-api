@@ -30,6 +30,8 @@ export async function _fetchPrivateEndpoint(
   );
 
   if (!response.ok) {
+    const errorBody = await response.text();
+	  console.error(`Error body: ${errorBody}`);
     throw new Error(response.statusText);
   }
 
